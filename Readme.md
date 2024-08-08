@@ -76,8 +76,8 @@ using JSON/CSV storage using OMDb API.
   - `test_storage_csv.py`: Unit tests for CSV storage
 - `_static/`
   - `index_template.html`: HTML template for generating the website
-  - `style/`
-    - `style.css`: CSS file for styling the website
+- `style/`
+  - `style.css`: CSS file for styling the website
 - `.env`: Environment variables file
 - `main.py`: Entry point for the application
 - `requirements.txt`: List of project dependencies
