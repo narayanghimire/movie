@@ -20,7 +20,6 @@ class MovieApp:
 
     def _fetch_movie_data(self, title):
         """Fetch movie data from OMDb API."""
-        api_key = '6769d9a1'
         url = f'{self.API_URL}?apikey={self.API_KEY}&t={title}'
         response = requests.get(url)
 
