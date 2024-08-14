@@ -62,6 +62,26 @@ class MovieApp:
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
 
+    def _command_update_movie(self):
+        """Update a movie's rating."""
+        title = input("Enter the title of the movie to update: ")
+        try:
+            movies = self._storage.list_movies()
+            if title not in movies:
+                print(f"Movie '{title}' not found.")
+                return
+
+            current_rating = movies[title]['rating']
+            print(f"Current rating for '{title}' is {current_rating}")
+
+            rating = float(input(f"Enter the new rating for '{title}': "))
+            self._storage.update_movie(title, rating)
+            print(f"Movie '{title}' updated successfully with new rating {rating}.")
+        except ValueError:
+            print("Invalid rating. Please enter a numeric value.")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+
     def _command_delete_movie(self):
         """Delete a movie."""
         title = input("Enter the title of the movie to delete: ")
@@ -159,7 +179,7 @@ class MovieApp:
             elif choice == '3':
                 self._command_delete_movie()
             elif choice == '4':
-                print("Update movie functionality is not available.")
+                self._command_update_movie()
             elif choice == '5':
                 self._command_stats()
             elif choice == '6':
